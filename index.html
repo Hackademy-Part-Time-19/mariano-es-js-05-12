@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubrica</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://kit.fontawesome.com/1f7ac7518d.js" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+
+</head>
+
+
+
+<body style="margin: 0px;">
+
+
+
+    <div id="aggiungi_contatto" style="position: fixed; width: 100%; height: 100vh; background-color: rgb(10, 10, 10,0.75); display: none; justify-content: center; align-items: center;">
+    
+        <div style="background-color: rgb(33, 33, 33); width: 500px; height: 750px; border-radius: 20px; color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+        
+
+                <h2>Aggiungi contatto</h2>
+
+                <div>
+                   
+                    <input style="border-radius: 20px; border: 2px solid rgb(255, 255, 255); height: 40px; color: white; background-color: black;" type="text" name="" id="nome_agg" placeholder="&nbsp;&nbsp;Nome">
+                
+                </div>
+
+                <div>
+                   
+                    <input style="border-radius: 20px; border: 2px solid rgb(255, 255, 255); height: 40px; color: white; background-color: black;" type="text" name="" id="cognome_agg" placeholder="&nbsp;&nbsp;Cognome">
+                
+                </div>
+
+                <div>
+                    
+                    <input style="border-radius: 20px; border: 2px solid rgb(255, 255, 255); height: 40px; color: white; background-color: black;" type="text" name="" id="numero_agg" placeholder="&nbsp;&nbsp;Numero">
+                
+                </div>
+                
+                <button style="border: 2px solid rgb(1, 251, 1); border-radius: 100px; color: rgb(1, 251, 1); background-color: rgb(33, 33, 33); font-size: 25px;" onclick="salvaContatto()" type="submit">Conferma</button>
+                
+
+
+           
+        
+        </div>
+
+        <button onclick="chiudiScheda()" style="position: absolute; right: 70px; top: 50px ;color: rgb(255, 0, 0); font-size: 30px; border: 5px solid rgb(255, 0, 0); border-radius: 100px; padding: 15px 20px; font-weight: 900; background-color: transparent;"><i class="fa-solid fa-x"></i></button>
+
+    </div>
+
+    
+    <div style="background-color: black; width: 100%; height: 100vh; display: flex;">
+    
+        <div style="width: 15%; height: 100%; border-right: 2px solid gray; display: flex; flex-direction: column;">
+            
+            <!-- V Account qui V -->
+
+            <div style="background-color: black; width: 100%; height: 15%; ">
+                
+                <div style="display: flex; flex-direction: row; text-align: center; align-items: center; margin-top: 25px;">
+                
+                    <img style=" width: 50px; height: 50px ; border-radius: 100px  ;margin-left: 30px; font-size: 30px; object-fit:cover; border: 5px solid rgb(255, 255, 255);" src="./download.jpg" alt="">
+
+                    <h2 style="margin-left: 20px; color: white; font-weight: 400;">Mario Rossi</h2>
+    
+
+                </div>
+               
+            
+            
+            </div>  
+
+            <!-- V Barra di ricerca qui V -->
+
+            <div style="background-color: black; border-top: 2px solid gray ;width: 100%; height: 10%; display: flex; justify-content: space-around; align-items: center;">
+                
+                <input style="border-radius: 20px; border: 2px solid rgb(255, 255, 255); height: 40px; color: white; background-color: black;" type="text" placeholder="&nbsp;&nbsp;Cerca tra i contatti">
+
+                <!-- V Aggiungi contatto qui V -->
+
+                <button onclick="aggiungiContatto()" style="border: 2px solid rgb(255, 255, 255); border-radius: 100px; font-size: 35px; color: rgb(255, 255, 255); background-color: black;"><i class="fa-solid fa-plus"></i></button>
+            
+            </div>
+
+        
+        </div>
+
+        <div style="width: 85%; height: 100%;">
+            
+            <div id="rubrica" style="background-color: black; width: 100%; height: 100%; display: flex; flex-direction: column;">
+                
+                <!-- V Contatti qui V -->
+
+                <div id="" style="height: 10%; width: 100%; background-color: black; border-bottom: 2px solid gray; color: white; display: flex; justify-content: space-between; align-items: center;">
+                    
+                    <h3 id="nome" style="margin-left: 50px;">Franco</h3>
+
+                    <h3 id="cognome" style="margin-left: -370px;">Valeri</h3>
+
+                    <h3 id="numero" >333 333 5555</h3>
+
+                    <button style="border: 2px solid white; border-radius: 100px; color: white; background-color: black;">Edit</button>
+
+                    <button onclick="" style="margin-right: 30px; margin-right: 30px; border: 2px solid red; border-radius: 100px; color: red; background-color: black;" >X</button>
+                
+                </div>
+
+                <!-- V Modifica contatto qui V -->
+
+                <div id="" style="height: 10%; width: 100%; background-color: black; border-bottom: 2px solid gray; color: white; display: none; justify-content: space-between; align-items: center;">
+
+                    <input id="nome_edit" type="text" style="margin-left: 30px; border-radius: 20px; border: 2px solid gray; height: 40px; color: gray; background-color: black; color: white;" placeholder="">
+
+                    <input id="cognome_edit" type="text" style="margin-left: -250px;; border-radius: 20px; border: 2px solid gray; height: 40px; color: gray; background-color: black; color: white;" placeholder="">
+
+                    <input id="numero_edit" style="border-radius: 20px; border: 2px solid gray; height: 40px; color: gray; background-color: black; color: white;" type="text" placeholder="">
+
+                    <button id="salva" style="border: 2px solid rgb(1, 251, 1); border-radius: 100px; color: rgb(1, 251, 1); background-color: black;" >Salva</button>
+
+                    <button id="annulla" style="margin-right: 30px; border: 2px solid red; border-radius: 100px; color: red; background-color: black;" >Annulla</button>
+
+                </div>
+
+            
+            </div>
+        
+        </div>
+    
+    
+    </div>
+
+
+</body>
+</html>
