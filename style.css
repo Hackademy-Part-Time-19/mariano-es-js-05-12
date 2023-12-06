@@ -4,3 +4,37 @@
 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 
 }
+
+button {
+
+    transition: 0.2s;
+    
+    cursor:pointer;
+
+}
+
+input {
+
+    transition: 0.5s;
+
+}
+
+button:hover {
+
+    scale: 1.2;
+
+
+}
+
+button:active {
+
+    background-color: white !important;
+
+}
+
+input:focus {
+
+
+    scale: 1.1;
+
+}

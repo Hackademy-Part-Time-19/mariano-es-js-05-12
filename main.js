@@ -60,6 +60,7 @@ function salvaContatto() {
         
         document.getElementById("numero_agg").style.borderColor = "red";
         return
+
     } else if (numero) {
 
         document.getElementById("numero_agg").style.borderColor = "white";
@@ -74,11 +75,11 @@ function salvaContatto() {
 
     <h3 id="cognome-" style="margin-left: -370px;">${cognome}</h3>
     
-    <h3 id="numero-">${numero}</h3>
+    <h3 id="numero-"> ${numero} </h3>
     
     <button onclick="modificaContatto(${indexrubrica})"  style="border: 2px solid white; border-radius: 100px; color: white; background-color: black;">Edit</button>
     
-    <button onclick="eliminaContatto(${indexrubrica})" style="margin-right: 30px; margin-right: 30px; border: 2px solid red; border-radius: 100px; color: red; background-color: black;" >X</button>
+    <button onclick="apriConfElimina(${indexrubrica})" style="margin-right: 30px; margin-right: 30px; border: 2px solid red; border-radius: 100px; color: red; background-color: black;" >X</button>
     
     </div>
     
@@ -180,7 +181,7 @@ function confermaModificaContatto(index) {
     
     <button onclick="modificaContatto(${index})"  style="border: 2px solid white; border-radius: 100px; color: white; background-color: black;">Edit</button>
     
-    <button onclick="eliminaContatto(${index})" style="margin-right: 30px; margin-right: 30px; border: 2px solid red; border-radius: 100px; color: red; background-color: black;" >X</button>`
+    <button onclick="apriConfElimina(${index})" style="margin-right: 30px; margin-right: 30px; border: 2px solid red; border-radius: 100px; color: red; background-color: black;" >X</button>`
 
     document.getElementById("contatto-edit-"+index).innerHTML = `
 
@@ -208,10 +209,42 @@ function confermaModificaContatto(index) {
 }
 
 function eliminaContatto(index) {
+    
+    document.getElementById("conferma_elim").style.display = "none";
 
     document.getElementById("contatto-"+index).remove();
     document.getElementById("contatto-edit-"+index).remove();
 
 
+
+}
+
+function apriConfElimina(index) {
+
+    let nome_1 = rubrica[index].nome;
+    let cognome_1 = rubrica[index].cognome;
+
+    
+    
+
+    console.log(rubrica[index].nome)
+
+    document.getElementById("conferma_elim").style.display = "flex";
+    
+
+    document.getElementById("bottoni").innerHTML = `
+    
+    <h2>Sei sicuro di voler eliminare <span id="variabili">${nome_1} ${cognome_1}</span> dalla lista dei contatti?</h2>
+                
+    <div><button style="border: 2px solid rgb(1, 251, 1); border-radius: 100px; color: rgb(1, 251, 1); background-color: rgb(33, 33, 33); font-size: 25px;" id="conferma_btn" onclick="eliminaContatto(${index})" >Si</button> <button style="border: 2px solid red; border-radius: 100px; color: red; background-color: rgb(33, 33, 33); font-size: 25px;" id="annulla_btn" onclick="chiudiConfElimina()">No</button></div>
+    
+    `
+
+
+}
+
+function chiudiConfElimina() {
+
+    document.getElementById("conferma_elim").style.display = "none";
 
 }
